@@ -6,6 +6,12 @@ CyberWatch Sentinel is a high-end, real-time cybersecurity monitoring dashboard 
 
 ## 🌟 Key Features
 
+### 0. 📱 WhatsApp Bot Integration (NEW!)
+- **Live Chat Interface:** Interact with CyberWatch Sentinel directly through WhatsApp.
+- **Command System:** `/threats`, `/scan`, `/analyze`, `/critical` commands.
+- **AI Assistant:** Natural language queries about cybersecurity.
+- **Real-time Alerts:** Get notified about critical threats instantly.
+
 ### 1. 🕷️ Live Threat Intelligence (AI-Parsed)
 - **Automatic Scraping:** Monitors global sources like The Hacker News and BleepingComputer.
 - **AI Triage:** Uses Groq AI to extract Severity, Vector, and Mitigation advice from raw news logs in real-time.
@@ -77,6 +83,17 @@ In a new terminal:
 ```bash
 npm run dev
 ```
+
+### 5. (Optional) Enable WhatsApp Bot
+See [WHATSAPP_SETUP.md](./WHATSAPP_SETUP.md) for detailed instructions.
+
+**Quick Start:**
+```bash
+cd server
+npm install @whiskeysockets/baileys @hapi/boom pino qrcode-terminal
+```
+
+Then uncomment the WhatsApp bot lines in `server/src/index.ts` and restart the server. Scan the QR code with WhatsApp!
 
 ## 📜 License
 This project is licensed under the MIT License - see the LICENSE file for details.
