@@ -24,17 +24,34 @@ const groq = new Groq({
 });
 const parser = new Parser();
 
-// The URLs to scrape live cyber news from
+// ============================================================================
+// LIVE THREAT INTELLIGENCE DATA SOURCES
+// ============================================================================
+// This system fetches REAL-TIME cyber threat intelligence from the following
+// trusted cybersecurity news RSS feeds. The data is automatically parsed,
+// analyzed by AI (Groq LLaMA 3.3), and structured into threat incidents.
+//
+// DATA SOURCES (RSS Feeds):
+// ============================================================================
 const RSS_FEEDS = [
-    'https://feeds.feedburner.com/TheHackersNews',
-    'https://www.bleepingcomputer.com/feed/',
-    'https://krebsonsecurity.com/feed/',
-    'https://www.darkreading.com/rss.xml',
-    'https://threatpost.com/feed/',
-    'https://www.securityweek.com/feed/',
-    'https://www.infosecurity-magazine.com/rss/news/',
-    'https://www.cyberscoop.com/feed/'
+    'https://feeds.feedburner.com/TheHackersNews',      // The Hacker News - Breaking cybersecurity news
+    'https://www.bleepingcomputer.com/feed/',           // BleepingComputer - Tech news & security
+    'https://krebsonsecurity.com/feed/',                // Krebs on Security - Investigative journalism
+    'https://www.darkreading.com/rss.xml',              // Dark Reading - Enterprise security
+    'https://threatpost.com/feed/',                     // Threatpost - Cybersecurity news
+    'https://www.securityweek.com/feed/',               // SecurityWeek - Security news & analysis
+    'https://www.infosecurity-magazine.com/rss/news/',  // Infosecurity Magazine
+    'https://www.cyberscoop.com/feed/'                  // CyberScoop - Cybersecurity news
 ];
+// ============================================================================
+// HOW IT WORKS:
+// 1. RSS feeds are fetched every 15 minutes (automated via cron job)
+// 2. Latest 3 articles from each feed are extracted
+// 3. Each article is sent to Groq AI (LLaMA 3.3-70B) for analysis
+// 4. AI extracts: threat type, severity, location, threat actor, sector, etc.
+// 5. Structured incident data is added to the in-memory database
+// 6. Frontend displays this live data on dashboards and maps
+// ============================================================================
 
 // In-memory database of incidents (pre-seeded with recent threats for demo reliability)
 let incidents: any[] = [
@@ -191,6 +208,15 @@ app.post('/api/chat', async (req, res) => {
     }
 });
 
+// ============================================================================
+// VULNERABILITY SCANNER - COMMENTED OUT (NON-FUNCTIONAL)
+// ============================================================================
+// This is a simulated scanner that doesn't perform real security scans.
+// Real vulnerability scanning requires specialized tools like Nmap, Nessus, 
+// OpenVAS, or commercial solutions. This endpoint is disabled.
+// ============================================================================
+
+/*
 // Simulated Vulnerability Scanner Endpoint
 app.post('/api/scan', async (req, res) => {
     const { target } = req.body;
@@ -242,6 +268,7 @@ app.post('/api/scan', async (req, res) => {
         });
     }
 });
+*/
 
 // WhatsApp Fraud Analysis Endpoint
 app.post('/api/analyze-chat', async (req, res) => {

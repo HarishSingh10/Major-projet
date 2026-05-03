@@ -4,7 +4,7 @@ import Layout from './components/Layout';
 import Overview from './pages/Overview';
 import Feed from './pages/Feed';
 import Visualize from './pages/Visualize';
-import Scanner from './pages/Scanner';
+// import Scanner from './pages/Scanner'; // COMMENTED OUT - Non-functional feature
 import Intelligence from './pages/Intelligence';
 import FraudShield from './pages/FraudShield';
 import { Incident } from './types';
@@ -85,7 +85,7 @@ const App: React.FC = () => {
             <Route path="/overview" element={<Overview />} />
             <Route path="/feed" element={<Feed />} />
             <Route path="/visualize" element={<Visualize />} />
-            <Route path="/scanner" element={<Scanner />} />
+            {/* <Route path="/scanner" element={<Scanner />} /> */} {/* COMMENTED OUT - Non-functional */}
             <Route path="/intelligence" element={<Intelligence />} />
             <Route path="/fraud-shield" element={<FraudShield />} />
           </Routes>

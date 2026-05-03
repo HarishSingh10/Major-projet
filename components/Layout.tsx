@@ -26,7 +26,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     { name: 'Overview', path: '/overview', icon: <LayoutDashboard size={20} /> },
     { name: 'Incident Feed', path: '/feed', icon: <List size={20} /> },
     { name: 'Visualizations', path: '/visualize', icon: <PieChart size={20} /> },
-    { name: 'Vulnerability Scanner', path: '/scanner', icon: <ScanSearch size={20} /> },
+    // { name: 'Vulnerability Scanner', path: '/scanner', icon: <ScanSearch size={20} /> }, // COMMENTED OUT - Non-functional
     { name: 'Threat Intelligence', path: '/intelligence', icon: <Users size={20} /> },
     { name: 'FraudShield (Chat)', path: '/fraud-shield', icon: <FileSearch size={20} /> },
   ];
